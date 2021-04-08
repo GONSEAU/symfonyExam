@@ -1,0 +1,14 @@
+{% extends "base.html.twig" %}
+
+{% block title %} Créer une tâche au projet   {% endblock %}
+
+{% block body %}
+
+    <form action="{{ path('add_task') }}" method="post">
+        Nom : <input type="text" name="title"> </br>
+        Description: <input type="text" name="description"> </br>
+        <button type="submit">Créer</button>
+    </form>
+
+
+{% endblock %}

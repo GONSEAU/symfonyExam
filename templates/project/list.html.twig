@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} list des projets{% endblock %}
+
+{% block body %}
+
+<h1> Project Hub</h1>
+<a href="/add_project" >Ajouter un Projet</a>
+<table>
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Ajouté le</th>
+            <th>Statut</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+                {% for project in project %}
+                <p>{{ project.name }}  </p>
+                {% endfor %}               
+            </td>     
+            <td>
+                {% for project in project %}
+                <p> {{project.startedAt|date("m/d/Y")}}  </p>
+                {% endfor %}               
+            </td>     
+            <td>
+                {% for project in project %}
+                <p>{{project.statut}} </p>
+                {% endfor %}               
+            </td>     
+            <td>
+                {% for project in project %}
+                <p><a href="/gerer/{{project.id}}">  gerez</a> </p>
+                {% endfor %}               
+            </td>     
+        </tr>
+    </tbody>
+</table>
+
+{% endblock %}

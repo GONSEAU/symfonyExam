@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+
+
+{% block body %}
+<h1>{{ project.name }} </h1>
+<p> crée le {{project.startedAt|date("m/d/Y")}}  </p>
+
+
+<label>Satut:</label>
+<select name="status" id="status-select">
+    <option value="nouveau">Nouveau</option>
+    <option value="encours">En cours</option>
+    <option value="termine">Terminé</option>
+</select>
+
+<a href="{{ path('add_task') }}">Nouvelle Tache</a>
+
+
+<table>
+    <thead>
+        <tr>
+            <th>Nom de la tache</th>
+            <th>description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+        <td>
+            {% for task in project.tasks %}
+                <p>{{ task.title }}</p> 
+            {% endfor %} 
+       </td>
+        
+        <td>
+            {% for task in project.tasks %}
+                <p>{{ task.description }}</p> 
+            {% endfor %} 
+        </td> 
+        </tr>
+    </tbody>
+</table>
+{% endblock %}
